@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>fullinfawsgallery</title>
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+	 <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css">
+      <link rel="stylesheet" href="css/style.css" type="text/css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <style type="text/css">
+		.img-responsive{
+		 width:100%;
+		}
+         .portfolio-section {
+         padding-bottom:40px;
+         }
+         /* category filter */
+         .filter-section {
+         padding-top:20px;
+         }
+         .filter-container {
+         text-align:center;
+         padding:0px
+         }
+         ul.filter > li > a {
+         color:#1abc9c;
+         font-size:20px;
+         line-height:40px
+         }
+         ul.filter > li > a:hover,ul.filter > li > a:focus {
+         text-decoration:none;
+         color:#16a085;
+         outline:none
+         }
+         ul.filter > li.active a {
+         color:#111
+         }
+         ul.filter > li span {
+         color:#ddd;
+         font-size:20px;
+         display:inline-block;
+         margin:0 5px
+         }
+         .filter-section .filter-container .filter > li {
+         padding:0;
+         margin:0
+         }
+         .filter-section h1 {
+         text-align:center
+         }
+         /* the color of the transparent overlay border */
+         .portfolio-section.port-col figure .overlay-background {
+         background-color:#000;
+         background-color:rgba(0,0,0,0.4);
+         }
+         /* portfolio images */
+         .portfolio-section figure {
+         float:left;
+         width:100%;
+         position:relative
+         }
+         .portfolio-section figure img {
+         width:100%;
+         height:auto
+         }
+         /* project title under image */
+         .portfolio-section .article-title {
+         text-align:center;
+         float:left;
+         width:100%;
+         font-size:18px;
+         line-height:24px;
+         padding:10px 0 30px 0;
+         }
+         .portfolio-section .article-title a {
+         color:#aaa
+         }
+         /* transparent overlay */
+         .portfolio-section figure:hover .overlay {
+         opacity:1;
+         visibility:visible
+         }
+         .portfolio-section figure:hover .overlay-background {
+         opacity:.8;
+         visibility:visible
+         }
+         .portfolio-section figure .overlay-background {
+         z-index:1;
+         -webkit-transition:all .2s ease-in-out;
+         -moz-transition:all .2s ease-in-out;
+         -o-transition:all .2s ease-in-out;
+         transition:all .2s ease-in-out;
+         position:absolute;
+         top:0;
+         left:0;
+         opacity:0;
+         visibility:hidden;
+         width:100%;
+         height:100%
+         }
+         .portfolio-section figure .overlay-background .inner {
+         position:absolute;
+         left:0;
+         right:0;
+         bottom:0;
+         top:0;
+         margin:11px;
+         background-color:#c8e9c8;
+         background-color:rgba(194,231,194,0.9)
+         }
+         .portfolio-section figure .overlay {
+         z-index:2;
+         transition:all .2s ease-in-out;
+         position:absolute;
+         top:0;
+         left:0;
+         opacity:0;
+         visibility:hidden;
+         width:100%;
+         height:100%
+         }
+         .portfolio-section figure .inner-overlay {
+         display:table;
+         width:100%;
+         height:100%
+         }
+         .portfolio-section figure .inner-overlay-content {
+         display:table-cell;
+         vertical-align:middle;
+         width:100%;
+         padding:20px 40px
+         }
+         .portfolio-section figure .inner-overlay-content.with-icons {
+         text-align:center
+         }
+         /* icons inside overlay */
+         .portfolio-section figure .inner-overlay-content.with-icons a {
+         width:40px;
+         height:40px;
+         line-height:42px;
+         display:inline-block;
+         margin:0 10px;
+         text-decoration:none;
+         font-size:20px;
+         background:rgba(0,0,0,0.9);
+         color:#fff;
+         border-radius:0
+         }
+         /* skew image on hover */ 
+         .isotopeSelector img {
+         -webkit-transition:all .4s ease;
+         -moz-transition:all .4s ease;
+         -ms-transition:all .4s ease;
+         -o-transition:all .4s ease;
+         transition:all .4s ease
+         }
+         .isotopeSelector:hover img {
+         -moz-transform:scale(1.5) rotate(2deg);
+         -webkit-transform:scale(1.5) rotate(2deg);
+         -o-transform:scale(1.5) rotate(2deg);
+         -ms-transform:scale(1.5) rotate(2deg);
+         transform:scale(1.5) rotate(2deg);
+         -webkit-transition:all .8s ease;
+         -moz-transition:all .8s ease;
+         -ms-transition:all .8s ease;
+         -o-transition:all .8s ease;
+         transition:all .8s ease
+         }
+         .isotopeSelector figure {
+         overflow:hidden
+         }
+         .isotopeSelector figure {
+         box-shadow:0 0 2px rgba(0,0,0,0.2)
+         }
+         /*
+         |--------------------------------------------------------------------------
+         |  Demo Specific Code
+         |--------------------------------------------------------------------------
+         */
+         .demo-colored-wrap {
+         background:#ecf0f1;
+         }
+		 
+	
+		 
+      </style>
+   </head>
+   <body>
+      <div class="container-fluid" style="background-color:#003366; padding:25px 0px;">
+         <div class="container" style="background-color:#003366; padding:0px;">
+            <div class="col-lg-3 col-md-4 col-sm-3 hidden-xs">
+               <i class="fa fa-envelope-o" aria-hidden="true" style="color:#fff;"></i><span style="color:#fff; font-size:18px;">&nbsp;&nbsp;fullinfawcollege.com</span>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-3 col-xs-6">
+               <i class="fa fa-phone" aria-hidden="true" style="color:#fff; font-size:18px;">&nbsp;&nbsp;+91 9742829703</i>
+            </div>
+            <div class="col-lg-3 col-lg-offset-3 col-md-3 col-sm-3 col-xs-6">
+               <div class="icon1" style="">
+                  <a class="facebook" href="#">
+                  <i class="fa fa-facebook" style="color:#fff; font-size:20px; padding: 0 5px;"></i>
+                  </a>
+                  <a class="twitter" href="#">
+                  <i class="fa fa-twitter" style="color:#fff; font-size:20px; padding: 0 5px;"></i>
+                  </a>
+                  <a class="pinterest" href="#">
+                  <i class="fa fa-pinterest-p" style="color:#fff; font-size:20px; padding: 0 5px;"></i>
+                  </a>
+                  <a class="linkedin" href="#">
+                  <i class="fa fa-linkedin" style="color:#fff; font-size:20px; padding: 0 5px;"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--end header-->
+      <div class="container-fluid top-bar">
+         <div class="container">
+             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" style="padding:10px 0px;">
+               <img src="images/logo-326x329.png" style="width:100%;">
+            </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-9 col-sm-offset-0 col-xs-6" style="top:15px;">
+               <nav class="navbar navbar-default">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header" style="margin-bottom:50px;">
+                     <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                     <span class="sr-only">Toggle navigation</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     </button>
+                  </div>
+                  <!-- Collection of nav links, forms, and other content for toggling -->
+                  <div id="navbarCollapse" class="collapse navbar-collapse">
+                     <ul class="nav navbar-nav" style="padding-top:20px;">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="Aboutus.html">ABOUT US</a></li>
+                        <li class="active"><a href="Gallery.html">GALLERY</a></li>
+						<li><a href="team.html">OUR TEAM</a></li>
+                        <li><a href="feature.html">FEATURE</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </div>
+      <!--end-->
+      <div class="gal" style="width:100%;">
+         <img src="images/banner4.jpg" class="img-responsive">
+      </div>
+      <!--end-->
+      <section class="filter-section" style="background-color:#ececec;">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="text-center">
+                     <h1 class="ideals_1">EVENTS</h1>
+                     <img src="images/line_3.png" style="padding-bottom:20px;">
+                  </div>
+                  <div class="filter-container isotopeFilters">
+                     <ul class="list-inline filter">
+                        <li class="active"><a href="#" data-filter="*">ALL</a><span>/</span></li>
+                        <li><a href="#" data-filter=".campus">CAMPUS</a><span>/</span></li>
+						<li><a href="#" data-filter=".events">EVENTS</a><span>/</span></li>
+						<li><a href="#" data-filter=".labs">LABS</a><span>/</span></li>
+						<li><a href="#" data-filter=".classrooms">CLASSROOM</a><span>/</span></li>
+						<li><a href="#" data-filter=".games">GAMES</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+	  <section class="portfolio-section port-col">
+    <div class="container">
+        <div class="row">
+            <div class="isotopeContainer">
+            
+			<div class="col-sm-3 isotopeSelector campus">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/0.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-1" href="images/portfolio/0.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28_1.JPG" rel="portfolio-1"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5_1.JPG" rel="portfolio-1"></a>
+									<a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10_1.JPG" rel="portfolio-1"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/13_1.JPG" rel="portfolio-1"></a>
+									<a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15_1.JPG" rel="portfolio-1"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20_1.JPG" rel="portfolio-1"></a>
+									<a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25_1.JPG" rel="portfolio-1"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CAMPUS</a></div>
+                </article>
+            </div>
+			<!--end-->
+            <div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/1.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-2" href="images/portfolio/1.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-2"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-2"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-2"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-2"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-2"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-2"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-2"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-2"></a>
+									<a title="Tenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-2"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-2"></a>
+									<a title="Twelfth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-2"></a>
+									<a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-2"></a>
+									<a title="Tenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-2"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-2"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-2"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+            <!--end-->
+            <div class="col-sm-3 isotopeSelector events">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/2.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-3" href="images/portfolio/2.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/7.jpg" rel="portfolio-3"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/12.jpg" rel="portfolio-3"></a>
+									<a title="Fourth"  class="fancybox-pop" style="display: none" href="images/portfolio/17.jpg" rel="portfolio-3"></a>
+									<a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">EVENTS</a></div>
+                </article>
+            </div>
+			<div class="clearfix"></div>
+            <!--end-->
+            <div class="col-sm-3 isotopeSelector classrooms">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/3.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-4" href="images/portfolio/3.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/8.JPG" rel="portfolio-4"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/13.JPG" rel="portfolio-4"></a>
+									<a title="Fourth"  class="fancybox-pop" style="display: none" href="images/portfolio/18.JPG" rel="portfolio-4"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CLASS ROOMS</a></div>
+                </article>
+            </div>
+            
+            <div class="col-sm-3 isotopeSelector labs">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/4.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-5" href="images/portfolio/4.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/9.JPG" rel="portfolio-5"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/14.JPG" rel="portfolio-5"></a>
+									<a title="Fourth"  class="fancybox-pop" style="display: none" href="images/portfolio/19.JPG" rel="portfolio-5"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">LABS</a></div>
+                </article>
+            </div>
+            
+            <div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/5.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-6" href="images/portfolio/5.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-6"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-6"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-6"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-6"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-6"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-6"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-6"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-6"></a>
+									<a title="Tenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-6"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-6"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-6"></a>
+									<a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-6"></a>
+									<a title="Tenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-6"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-6"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-6"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+            <!--end-->
+			<div class="col-sm-3 isotopeSelector campus">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/5_1.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-7" href="images/portfolio/5_1.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28_1.JPG" rel="portfolio-7"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/0.JPG" rel="portfolio-7"></a>
+									<a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10_1.JPG" rel="portfolio-7"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/13_1.JPG" rel="portfolio-7"></a>
+									<a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15_1.JPG" rel="portfolio-7"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20_1.JPG" rel="portfolio-7"></a>
+									<a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25_1.JPG" rel="portfolio-7"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CAMPUS</a></div>
+                </article>
+            </div>
+            <div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/6.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-8" href="images/portfolio/6.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-8"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-8"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-8"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-8"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-8"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-8"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-8"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-8"></a>
+									<a title="Tenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-8"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-8"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-8"></a>
+									<a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-8"></a>
+									<a title="Tenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-8"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-8"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-8"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+            
+            <div class="col-sm-3 isotopeSelector events">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/7.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-9" href="images/portfolio/7.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/2.jpg" rel="portfolio-9"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/12.jpg" rel="portfolio-9"></a>
+									<a title="Fouth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/17.jpg" rel="portfolio-9"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">EVENTS</a></div>
+                </article>
+            </div>
+            
+            <div class="col-sm-3 isotopeSelector classrooms">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/8.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-10" href="images/portfolio/8.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/3.JPG" rel="portfolio-10"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/13.JPG" rel="portfolio-10"></a>
+									<a title="Fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/18.JPG" rel="portfolio-10"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CLASSROOMS</a></div>
+                </article>
+            </div>
+            
+            <div class="col-sm-3 isotopeSelector labs">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/9.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-11" href="images/portfolio/9.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/4.JPG" rel="portfolio-11"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/14.JPG" rel="portfolio-11"></a>
+									<a title="Fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/9.JPG" rel="portfolio-11"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">LABS</a></div>
+                </article>
+            </div>
+            
+            <div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/10.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-12" href="images/portfolio/10.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-12"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-12"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-12"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-12"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-12"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-12"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-12"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-12"></a>
+									<a title="Tenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-12"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-12"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-12"></a>
+									<a title="Thirteen Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-12"></a>
+									<a title="Fourteent Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-12"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-12"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-12"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+            <!--end-->
+			<div class="col-sm-3 isotopeSelector campus">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/10_1.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-13" href="images/portfolio/10_1.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/0.JPG" rel="portfolio-13"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5_1.JPG" rel="portfolio-13"></a>
+									<a title="Fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28_1.JPG" rel="portfolio-13"></a>
+                                    <a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/13_1.JPG" rel="portfolio-13"></a>
+									<a title="Sisth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15_1.JPG" rel="portfolio-13"></a>
+                                    <a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20_1.JPG" rel="portfolio-13"></a>
+									<a title="Eigth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25_1.JPG" rel="portfolio-13"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CAMPUS</a></div>
+                </article>
+            </div>
+			<!--end-->
+            <div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/11.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-14" href="images/portfolio/11.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-14"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-14"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-14"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-14"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-14"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-14"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-14"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-14"></a>
+									<a title="Tenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-14"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-14"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-14"></a>
+									<a title="Thirteen Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-14"></a>
+									<a title="Fourteent Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-14"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-14"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-14"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+            <!--end-->
+            <div class="col-sm-3 isotopeSelector events">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/12.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-15" href="images/portfolio/12.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/2.jpg" rel="portfolio-15"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/17.jpg" rel="portfolio-15"></a>
+									 <a title="Fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/2.jpg" rel="portfolio-15"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">EVENTS</a></div>
+                </article>
+            </div>
+            <!--end-->
+            <div class="col-sm-3 isotopeSelector classrooms">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/13.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-16" href="images/portfolio/13.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/3.JPG" rel="portfolio-16"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/8.JPG" rel="portfolio-16"></a>
+									<a title="Fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/18.JPG" rel="portfolio-16"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CLASSROOMS</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector campus">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/13_1.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-17" href="images/portfolio/13_1.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28_1.JPG" rel="portfolio-17"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5_1.JPG" rel="portfolio-17"></a>
+									<a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10_1.JPG" rel="portfolio-17"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/0.JPG" rel="portfolio-17"></a>
+									<a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15_1.JPG" rel="portfolio-17"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20_1.JPG" rel="portfolio-17"></a>
+									<a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25_1.JPG" rel="portfolio-17"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CAMPUS</a></div>
+                </article>
+            </div>
+			<div class="col-sm-3 isotopeSelector labs">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/14.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-18" href="images/portfolio/14.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/19.JPG" rel="portfolio-18"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/4.JPG" rel="portfolio-18"></a>
+									<a title="Fouth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/9.JPG" rel="portfolio-18"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">LABS</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/15.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                   <a title="First Image" class="fancybox-pop" rel="portfolio-19" href="images/portfolio/15.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-19"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-19"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-19"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-19"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-19"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-19"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-19"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-19"></a>
+									<a title="Tenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-19"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-19"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-19"></a>
+									<a title="Thirteen Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-19"></a>
+									<a title="Fourteent Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-19"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-19"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-19"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector campus">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/15_1.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-20" href="images/portfolio/15_1.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/0.JPG" rel="portfolio-20"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10_1.JPG" rel="portfolio-20"></a>
+									<a title="Fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28_1.JPG" rel="portfolio-20"></a>
+                                    <a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/13_1.JPG" rel="portfolio-20"></a>
+									<a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5_1.JPG" rel="portfolio-20"></a>
+                                    <a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20_1.JPG" rel="portfolio-20"></a>
+									<a title="Eigth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25_1.JPG" rel="portfolio-20"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CAMPUS</a></div>
+                </article>
+            </div>
+			<div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/16.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-21" href="images/portfolio/16.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-21"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-21"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-21"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-21"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-21"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-21"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-21"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-21"></a>
+									<a title="Tenth"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-21"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-21"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-21"></a>
+									<a title="Thirteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-21"></a>
+									<a title="Fourteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-21"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-21"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-21"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector events">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/17.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-22" href="images/portfolio/17.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/2.jpg" rel="portfolio-22"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/7.jpg" rel="portfolio-22"></a>
+									<a title="Fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/12.jpg" rel="portfolio-22"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">EVENTS</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector classrooms">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/18.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-23" href="images/portfolio/18.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/13.JPG" rel="portfolio-23"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/8.JPG" rel="portfolio-23"></a>
+									<a title="Fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/3.JPG" rel="portfolio-23"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CLASSROOMS</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector labs">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/19.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-24" href="images/portfolio/19.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/9.JPG" rel="portfolio-24"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/14.JPG" rel="portfolio-24"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">LABS</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/20.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-25" href="images/portfolio/20.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-25"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-25"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-25"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-25"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-25"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-25"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-25"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-25"></a>
+									<a title="Tenth Image" class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-25"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-25"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-25"></a>
+									<a title="Thirteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-25"></a>
+									<a title="Fourteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-25"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-25"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-25"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+			<!--end-->
+				<div class="col-sm-3 isotopeSelector campus">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/20_1.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-26" href="images/portfolio/20_1.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/0.JPG" rel="portfolio-26"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5_1.JPG" rel="portfolio-26"></a>
+									<a title="Fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28_1.JPG" rel="portfolio-26"></a>
+                                    <a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/13_1.JPG" rel="portfolio-26"></a>
+									<a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15_1.JPG" rel="portfolio-26"></a>
+                                    <a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10_1.JPG" rel="portfolio-26"></a>
+									<a title="Eigth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25_1.JPG" rel="portfolio-26"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CAMPUS</a></div>
+                </article>
+            </div>
+			<div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/21.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-27" href="images/portfolio/21.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-27"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-27"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-27"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-27"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-27"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-27"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-27"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-27"></a>
+									<a title="Tenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-27"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-27"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-27"></a>
+									<a title="Thirteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-27"></a>
+									<a title="Fourteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-27"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-27"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-27"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/22.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-28" href="images/portfolio/28.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-28"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-28"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-28"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-28"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-28"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-28"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-28"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-28"></a>
+									<a title="Tenth"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-28"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-28"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-28"></a>
+									<a title="Thirteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-28"></a>
+									<a title="Fourteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-28"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-28"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-28"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/23.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-29" href="images/portfolio/23.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-29"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-29"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-29"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-29"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-29"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-29"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-29"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-29"></a>
+									<a title="Tenth"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-29"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-29"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-29"></a>
+									<a title="Thirteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-29"></a>
+									<a title="Fourteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-29"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-29"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-29"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/24.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-30" href="images/portfolio/24.jpg"><i class="fa fa-search"></i></a>
+                                   <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-30"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-30"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-30"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-30"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-30"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-30"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-30"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-30"></a>
+									<a title="Tenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-30"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-30"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-30"></a>
+									<a title="Thirteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-30"></a>
+									<a title="Fourteen Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-30"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-30"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-30"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/25.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        
+                            <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-31" href="images/portfolio/25.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-31"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-31"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-31"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-31"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-31"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-31"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-31"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-31"></a>
+									<a title="Tenth"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-34"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-31"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-31"></a>
+									<a title="Thirteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-31"></a>
+									<a title="Fourteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-31"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-31"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-31"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector campus">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/25_1.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-32" href="images/portfolio/25_1.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/0.JPG" rel="portfolio-32"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5_1.JPG" rel="portfolio-32"></a>
+									<a title="Fouth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10_1.JPG" rel="portfolio-32"></a>
+                                    <a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/13_1.JPG" rel="portfolio-32"></a>
+									<a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15_1.JPG" rel="portfolio-32"></a>
+                                    <a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20_1.JPG" rel="portfolio-32"></a>
+									<a title="Eigth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28_1.JPG" rel="portfolio-32"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CAMPUS</a></div>
+                </article>
+            </div>
+			<div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/26.jpg" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-33" href="images/portfolio/26.jpg"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-33"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-33"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-33"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-33"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-33"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.jpg" rel="portfolio-33"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-33"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-33"></a>
+									<a title="Tenth"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-33"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-33"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-33"></a>
+									<a title="Thirteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-33"></a>
+									<a title="Fourteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-33"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-33"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-33"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/27.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-34" href="images/portfolio/27.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-34"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-34"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-34"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-34"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-34"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-34"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-34"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-34"></a>
+									<a title="Tenth"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-34"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-34"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-34"></a>
+									<a title="Thirteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-34"></a>
+									<a title="Fourteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-34"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/28.JPG" rel="portfolio-34"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-34"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+			<!--end-->
+			<div class="col-sm-3 isotopeSelector games">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/28.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-35" href="images/portfolio/28.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/1.jpg" rel="portfolio-35"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5.JPG" rel="portfolio-35"></a>
+									<a title="fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/6.jpg" rel="portfolio-35"></a>
+									<a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10.JPG" rel="portfolio-35"></a>
+                                    <a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/11.jpg" rel="portfolio-35"></a>
+									<a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15.JPG" rel="portfolio-35"></a>
+									<a title="Eight Image"  class="fancybox-pop" style="display: none" href="images/portfolio/16.jpg" rel="portfolio-35"></a>
+                                    <a title="Nienth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20.jpg" rel="portfolio-35"></a>
+									<a title="Tenth"  class="fancybox-pop" style="display: none" href="images/portfolio/21.JPG" rel="portfolio-35"></a>
+									<a title="Eleventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/22.jpg" rel="portfolio-35"></a>
+									<a title="Twelth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/23.jpg" rel="portfolio-35"></a>
+									<a title="Thirteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/24.jpg" rel="portfolio-35"></a>
+									<a title="Fourteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25.jpg" rel="portfolio-35"></a>
+									<a title="Fifteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/27.JPG" rel="portfolio-35"></a>
+									<a title="Sixteenth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/26.jpg" rel="portfolio-35"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">GAMES</a></div>
+                </article>
+            </div>
+				<div class="col-sm-3 isotopeSelector campus">
+                <article class="">
+                    <figure>
+                        <img src="images/portfolio/28_1.JPG" alt="" class="img-responsive">
+                        <div class="overlay-background">
+                            <div class="inner"></div>
+                        </div>
+                        <div class="overlay">
+                            <div class="inner-overlay">
+                                <div class="inner-overlay-content with-icons">
+                                    <a title="First Image" class="fancybox-pop" rel="portfolio-36" href="images/portfolio/28_1.JPG"><i class="fa fa-search"></i></a>
+                                    <a title="Second Image"  class="fancybox-pop" style="display: none" href="images/portfolio/0.JPG" rel="portfolio-36"></a>
+                                    <a title="Third Image"  class="fancybox-pop" style="display: none" href="images/portfolio/5_1.JPG" rel="portfolio-36"></a>
+									<a title="Fourth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/20_1.JPG" rel="portfolio-36"></a>
+                                    <a title="Fifth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/13_1.JPG" rel="portfolio-36"></a>
+									<a title="Sixth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/15_1.JPG" rel="portfolio-36"></a>
+                                    <a title="Seventh Image"  class="fancybox-pop" style="display: none" href="images/portfolio/10_1.JPG" rel="portfolio-36"></a>
+									<a title="Eigth Image"  class="fancybox-pop" style="display: none" href="images/portfolio/25_1.JPG" rel="portfolio-36"></a>
+                                    <a href="#"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="article-title"><a href="#">CAMPUS</a></div>
+                </article>
+            </div>
+			<!--end-->
+			
+			<!--end-->
+        </div>
+		  </div>
+    </div>
+</section>
+     
+      <!--<div class="map">
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.5533193439255!2d77.61563201549524!3d12.872101740921257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6578cfaad053245d!2zRnVsbGluZmF3cyBDb2xsZWdlIOCyq-CzjeCyueCzguCysuCzjeCysuCyv-CyqOCyq-CzjeCyueCzgiDgspXgsr7gsrLgs4fgspzgs4E!5e0!3m2!1sen!2sin!4v1524738275544" width="100%" height="510" frameborder="0" style="border:0" allowfullscreen></iframe>
+         </div>-->
+      <!--end-->
+      <!-- footer -->
+      <div class="footer section5" style="padding:30px 0px;">
+         <div class="container">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+               <div class="section5_5">
+                  <img src="images/logo-326x329.png">
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+               <h3 style="color:#f00; text-transform:uppercase; padding-bottom:10px; font-weight:bold; font-weight:600;">Contact us</h3>
+               <p><i class="fa fa-phone social_icon" aria-hidden="true">&nbsp;<span class="social_icon_1"><span style="color:#6e6e6e; font-size:15px;">+91 9742829703</span></span></i></p>
+               <p><i class="fa fa-map-marker social_icon" aria-hidden="true">&nbsp;<span class="social_icon_1"></i><span style="color:#6e6e6e; font-size:16px;">Akshay Nagar , Near DLF Township,&nbsp;Yellanahalli,&nbsp;&nbsp;Begur Hobli, Bannerghatta&nbsp;Road,Bengaluru, Karnataka 560076.</span></p>
+               <p><i class="fa fa-envelope social_icon" aria-hidden="true">&nbsp;<span class="social_icon_1"><span style="color:#6e6e6e; font-size:15px;">fullinfawcollege.com</span></span></i></p>
+               <i class="fa fa-facebook-square social_icon" aria-hidden="true"></i>
+               <i class="fa fa-twitter-square social_icon" aria-hidden="true"></i>
+               <i class="fa fa-google-plus-square social_icon" aria-hidden="true"></i>
+               <i class="fa fa-instagram social_icon" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+               <h3 style="color:#f00; text-transform:uppercase; padding-bottom:10px; font-weight:bold; font-weight:600;">Newsletter</h3>
+               <p style="padding-bottom:10px;">Enter your email address to get the latest University news, special events and student activities delivered right to your inbox.</p>
+               <div class="search-text">
+                  <div class="row exam">
+                     <form class="example" action="/action_page.php">
+                        <input type="text" placeholder="yourmail" name="search">
+                        <button type="submit">submit</button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="js/isotope.min.js"></script>
+      <script src="js/jquery.fancybox.pack.js"></script>
+      <script src="js/main.js"></script>
+	  
+	  </body>
+	  </html>
